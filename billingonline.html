@@ -1,0 +1,55 @@
+<html>
+
+<head>
+
+    <title>Online Billing</title>
+
+    <script>
+
+        function hitungBiaya() {
+
+            // Mendapatkan nilai input dari keyboard
+
+            var detikPemakaian = parseInt(document.getElementById("detik").value);
+
+ 
+
+            // Konversi detik pemakaian ke pulsa
+
+            var pulsa = Math.ceil(detikPemakaian / 45);
+
+ 
+
+            // Hitung biaya
+
+            var biaya = pulsa * 60;
+
+ 
+
+            // Menampilkan hasil perhitungan
+
+            document.getElementById("hasil").innerHTML = "Biaya: " + biaya + " rupiah";
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Online Billing</h2>
+
+    <form>
+
+        Jumlah Detik Pemakaian: <input type="text" id="detik"><br>
+
+        <input type="button" value="Hitung Biaya" onclick="hitungBiaya()">
+
+    </form>
+
+    <div id="hasil"></div>
+
+</body>
+
+</html>

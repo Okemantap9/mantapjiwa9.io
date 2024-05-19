@@ -1,0 +1,117 @@
+<html>
+
+<head>
+
+    <title>Syarat Penerimaan Pegawai</title>
+
+    <script>
+
+        function cekKelayakan() {
+
+            // Mendapatkan nilai input dari form
+
+            var jenisKelamin = document.getElementById("jenis_kelamin").value;
+
+            var tinggiBadan = parseInt(document.getElementById("tinggi_badan").value);
+
+            var beratBadan = parseFloat(document.getElementById("berat_badan").value);
+
+            var ipk = parseFloat(document.getElementById("ipk").value);
+
+            var pendidikan = document.getElementById("pendidikan").value;
+
+ 
+
+            // Menentukan batas tinggi badan dan berat badan ideal
+
+            var tinggiMin, tinggiMax, beratIdealMin, beratIdealMax;
+
+            if (jenisKelamin === "laki-laki") {
+
+                tinggiMin = 170;
+
+                tinggiMax = 179;
+
+            } else {
+
+                tinggiMin = 160;
+
+                tinggiMax = 170;
+
+            }
+
+            beratIdealMin = tinggiMin - 110;
+
+            beratIdealMax = tinggiMax - 110;
+
+ 
+
+            // Memeriksa apakah pelamar memenuhi syarat
+
+            var kelayakan = "Tidak Memenuhi Syarat";
+
+            if (tinggiBadan >= tinggiMin && tinggiBadan <= tinggiMax &&
+
+                beratBadan >= beratIdealMin && beratBadan <= beratIdealMax &&
+
+                ipk >= 3 && ipk <= 4 &&
+
+                (pendidikan === "D3" || pendidikan === "S1")) {
+
+                kelayakan = "Memenuhi Syarat";
+
+            }
+
+ 
+
+            // Menampilkan hasil pengecekan
+
+            document.getElementById("hasil").innerHTML = "Kelayakan: " + kelayakan;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Syarat Penerimaan Pegawai</h2>
+
+    <form>
+
+        Jenis Kelamin:
+
+        <select id="jenis_kelamin">
+
+            <option value="laki-laki">Laki-laki</option>
+
+            <option value="perempuan">Perempuan</option>
+
+        </select><br>
+
+        Tinggi Badan: <input type="text" id="tinggi_badan"><br>
+
+        Berat Badan: <input type="text" id="berat_badan"><br>
+
+        IPK: <input type="text" id="ipk"><br>
+
+        Pendidikan:
+
+        <select id="pendidikan">
+
+            <option value="D3">D3</option>
+
+            <option value="S1">S1</option>
+
+        </select><br>
+
+        <input type="button" value="Cek Kelayakan" onclick="cekKelayakan()">
+
+    </form>
+
+    <div id="hasil"></div>
+
+</body>
+
+</html>

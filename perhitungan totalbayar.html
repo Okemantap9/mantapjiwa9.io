@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+    <title>Perhitungan Total Bayar</title>
+
+    <script>
+
+        function hitungTotalBayar() {
+
+            // Mendapatkan nilai input dari form
+
+            var namaBarang = document.getElementById("nama").value;
+
+            var hargaBarang = parseFloat(document.getElementById("harga").value);
+
+            var jumlahBarang = parseInt(document.getElementById("jumlah").value);
+
+            var totalBayar = 0;
+
+ 
+
+            // Menerapkan diskon jika pembelian >= 3
+
+            if (jumlahBarang >= 3) {
+
+                var diskon = 0.1 * hargaBarang; // Diskon 30% dari harga barang
+
+                totalBayar = (hargaBarang * jumlahBarang) - diskon;
+
+            } else {
+
+                totalBayar = hargaBarang * jumlahBarang;
+
+            }
+
+ 
+
+            // Menampilkan hasil perhitungan
+
+            document.getElementById("hasil").innerHTML = "Nama Barang: " + namaBarang + "<br>" +
+
+                                                            "Total Bayar: " + totalBayar;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Perhitungan Total Bayar</h2>
+
+    <form>
+
+        Nama Barang: <input type="text" id="nama"><br>
+
+        Harga Barang: <input type="text" id="harga"><br>
+
+        Jumlah Barang: <input type="text" id="jumlah"><br>
+
+        <input type="button" value="Hitung Total Bayar" onclick="hitungTotalBayar()">
+
+    </form>
+
+    <div id="hasil"></div>
+
+</body>
+
+</html>

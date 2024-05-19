@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+    <title>Perhitungan Gaji</title>
+
+    <script>
+
+        function hitungGajiTotal() {
+
+            // Gaji pokok per hari
+
+            var gajiPerHari = 150000;
+
+ 
+
+            // Mendapatkan nilai input dari form
+
+            var jamLembur = parseInt(document.getElementById("jam").value);
+
+ 
+
+            // Gaji lembur per jam
+
+            var gajiLemburPerJam = (jamLembur >= 3) ? 35000 : 25000;
+
+ 
+
+            // Menghitung gaji lembur
+
+            var gajiLembur = gajiLemburPerJam * jamLembur;
+
+ 
+
+            // Bonus uang makan jika jumlah jam kerja >= 20
+
+            var bonusMakan = (jamLembur >= 20) ? 5000 : 0;
+
+ 
+
+            // Menghitung total gaji
+
+            var totalGaji = gajiPerHari + gajiLembur + bonusMakan;
+
+ 
+
+            // Menampilkan hasil perhitungan
+
+            document.getElementById("hasil").innerHTML = "Total Gaji: " + totalGaji;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Perhitungan Gaji</h2>
+
+    <form>
+
+        Jumlah Jam Lembur: <input type="text" id="jam"><br>
+
+        <input type="button" value="Hitung Gaji Total" onclick="hitungGajiTotal()">
+
+    </form>
+
+    <div id="hasil"></div>
+
+</body>
+
+</html>
